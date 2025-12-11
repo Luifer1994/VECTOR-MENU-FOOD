@@ -1,0 +1,124 @@
+{
+  "categories": {
+    "ADICIONALES": {
+      "name": "Adicionales",
+      "description": "Complementa tu pedido",
+      "image": "https://images.unsplash.com/photo-1618346136472-090de76b4cc0?w=800&h=600&fit=crop",
+      "color": "#FF8C00"
+    },
+    "AL BARRIL": {
+      "name": "Al Barril",
+      "description": "Expertos al barril",
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop",
+      "color": "#FF8C00"
+    },
+    "ASADOS CARBON": {
+      "name": "Asados al Carbón",
+      "description": "Carnes premium a la parrilla",
+      "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=600&fit=crop",
+      "color": "#FF8C00"
+    },
+    "BEBIDAS": {
+      "name": "Bebidas",
+      "description": "Refrescantes y deliciosas",
+      "image": "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=800&h=600&fit=crop",
+      "color": "#7FFF00"
+    },
+    "CLASICA BAR": {
+      "name": "Clásica Bar",
+      "description": "Hamburguesas premium",
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop",
+      "color": "#FF00FF"
+    },
+    "COCTELES": {
+      "name": "Cocteles",
+      "description": "Mezclas perfectas",
+      "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&h=600&fit=crop",
+      "color": "#FF00FF"
+    },
+    "DESGRANADO": {
+      "name": "Desgranado",
+      "description": "Mazorcas y más",
+      "image": "https://images.unsplash.com/photo-1551462147-37950a0f9a4e?w=800&h=600&fit=crop",
+      "color": "#7FFF00"
+    },
+    "ENT PARA PICAR": {
+      "name": "Para Picar",
+      "description": "Entradas deliciosas",
+      "image": "https://images.unsplash.com/photo-1621457734625-8abafef1d10b?w=800&h=600&fit=crop",
+      "color": "#D4AF37"
+    },
+    "INFANTIL": {
+      "name": "Infantil",
+      "description": "Para los más pequeños",
+      "image": "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=800&h=600&fit=crop",
+      "color": "#FF00FF"
+    },
+    "LIMONADAS": {
+      "name": "Limonadas",
+      "description": "Frescas y naturales",
+      "image": "https://images.unsplash.com/photo-1523677011781-c91d1bbe4a61?w=800&h=600&fit=crop",
+      "color": "#7FFF00"
+    },
+    "MEKATOS": {
+      "name": "Mekatos",
+      "description": "Snacks y delicias",
+      "image": "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=800&h=600&fit=crop",
+      "color": "#FF8C00"
+    },
+    "PAL GRUPO": {
+      "name": "Para el Grupo",
+      "description": "Para compartir",
+      "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=600&fit=crop",
+      "color": "#D4AF37"
+    },
+    "PERROS": {
+      "name": "Perros",
+      "description": "Hot dogs gourmet",
+      "image": "https://images.unsplash.com/photo-1612392062422-ef19b42f74df?w=800&h=600&fit=crop",
+      "color": "#FF8C00"
+    },
+    "PICADA DE CARNE": {
+      "name": "Picada de Carne",
+      "description": "Picadas mixtas",
+      "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=600&fit=crop",
+      "color": "#FF8C00"
+    },
+    "PLATOS ESPECIALES": {
+      "name": "Platos Especiales",
+      "description": "Lo mejor de la casa",
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=600&fit=crop",
+      "color": "#D4AF37"
+    },
+    "SALCHIPAPAS": {
+      "name": "Salchipapas",
+      "description": "Un clásico irresistible",
+      "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=800&h=600&fit=crop",
+      "color": "#7FFF00"
+    },
+    "SHOTS": {
+      "name": "Shots",
+      "description": "Para la fiesta",
+      "image": "https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?w=800&h=600&fit=crop",
+      "color": "#FF00FF"
+    },
+    "SODAS MICHELADAS": {
+      "name": "Sodas y Micheladas",
+      "description": "Refrescantes con estilo",
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&h=600&fit=crop",
+      "color": "#7FFF00"
+    },
+    "Z LICORES": {
+      "name": "Licores",
+      "description": "Tu bebida favorita",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&h=600&fit=crop",
+      "color": "#FF00FF"
+    },
+    "ZZ EVENTOS": {
+      "name": "Eventos",
+      "description": "Paquetes especiales",
+      "image": "https://images.unsplash.com/photo-1530103043960-ef38714abb15?w=800&h=600&fit=crop",
+      "color": "#D4AF37"
+    }
+  }
+}

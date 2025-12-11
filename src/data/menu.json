@@ -1,0 +1,165 @@
+{
+  "categories": [
+    {
+      "id": "fast-food",
+      "name": "Comidas Rápidas",
+      "image": "https://placehold.co/600x400/f97316/ffffff?text=Fast+Food",
+      "description": "Las mejores hamburguesas y perros de la ciudad.",
+      "subcategories": [
+        { "id": "burgers", "name": "Hamburguesas" },
+        { "id": "hotdogs", "name": "Perros Calientes" },
+        { "id": "salchipapas", "name": "Salchipapas" }
+      ]
+    },
+    {
+      "id": "grill",
+      "name": "Asados",
+      "image": "https://placehold.co/600x400/ef4444/ffffff?text=Asados",
+      "description": "Cortes selectos a la parrilla.",
+      "subcategories": [
+        { "id": "steaks", "name": "Res" },
+        { "id": "chicken", "name": "Pollo" },
+        { "id": "ribs", "name": "Costillas" }
+      ]
+    },
+    {
+      "id": "barrel",
+      "name": "Al Barril",
+      "image": "https://placehold.co/600x400/eab308/ffffff?text=Al+Barril",
+      "description": "Sabor ahumado inigualable.",
+      "subcategories": [
+        { "id": "pork-belly", "name": "Chicharrón" },
+        { "id": "bondiola", "name": "Bondiola" }
+      ]
+    },
+     {
+      "id": "beverages",
+      "name": "Bebidas",
+      "image": "https://placehold.co/600x400/3b82f6/ffffff?text=Bebidas",
+      "description": "Refrescantes y deliciosas.",
+      "subcategories": [
+        { "id": "sodas", "name": "Gaseosas" },
+        { "id": "juices", "name": "Jugos Naturales" },
+        { "id": "beers", "name": "Cervezas" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "categoryId": "fast-food",
+      "subcategoryId": "burgers",
+      "name": "Hamburguesa Clásica",
+      "description": "Carne 150g, queso cheddar, lechuga, tomate y salsas de la casa.",
+      "price": 15000,
+      "image": "https://placehold.co/400x300/f97316/ffffff?text=Burger+Clasica",
+      "rating": 4.5,
+      "time": "15 min",
+      "options": [
+        {
+            "name": "Select Sauce",
+            "type": "radio",
+            "required": true,
+            "choices": ["BBQ", "Garlic", "Spicy", "None"]
+        },
+        {
+            "name": "Extras",
+            "type": "checkbox",
+            "choices": ["Cheese (+ $2.000)", "Bacon (+ $3.000)"]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "categoryId": "fast-food",
+      "subcategoryId": "burgers",
+      "name": "Hamburguesa Doble",
+      "description": "Doble carne 150g, doble queso, tocineta y vegetales frescos.",
+      "price": 22000,
+      "image": "https://placehold.co/400x300/f97316/ffffff?text=Burger+Doble",
+      "rating": 4.8,
+      "time": "20 min",
+      "options": [
+        {
+            "name": "Select Sauce",
+            "type": "radio",
+            "required": true,
+            "choices": ["BBQ", "Garlic", "Spicy", "None"]
+        },
+        {
+            "name": "Extras",
+            "type": "checkbox",
+            "choices": ["Extra Cheese (+ $2.000)", "Extra Bacon (+ $3.000)"]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "categoryId": "fast-food",
+      "subcategoryId": "hotdogs",
+      "name": "Perro Sencillo",
+      "description": "Salchicha americana, queso, papita ripio y salsas.",
+      "price": 12000,
+      "image": "https://placehold.co/400x300/f97316/ffffff?text=Perro+Sencillo",
+      "rating": 4.2,
+      "time": "10 min",
+      "options": [
+         {
+            "name": "Toppings",
+            "type": "checkbox",
+            "choices": ["Pineapple Sauce", "Onions", "Chips"]
+         }
+      ]
+    },
+    {
+      "id": "p4",
+      "categoryId": "grill",
+      "subcategoryId": "steaks",
+      "name": "Churrasco",
+      "description": "Corte de chatas 300g acompañado de papa y ensalada.",
+      "price": 35000,
+      "image": "https://placehold.co/400x300/ef4444/ffffff?text=Churrasco",
+      "rating": 4.7,
+      "time": "25 min",
+      "options": [
+        {
+            "name": "Termino",
+            "type": "radio",
+            "required": true,
+            "choices": ["Bien Asado", "3/4", "Termino Medio", "Azul"]
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "categoryId": "barrel",
+      "subcategoryId": "pork-belly",
+      "name": "Chicharrón Ahumado",
+      "description": "300g de chicharrón carnudo al barril con arepa.",
+      "price": 25000,
+      "image": "https://placehold.co/400x300/eab308/ffffff?text=Chicharron",
+      "rating": 4.9,
+      "time": "40 min",
+      "options": [
+         {
+            "name": "Accompaniment",
+            "type": "radio",
+            "required": true,
+            "choices": ["Arepa", "Papa Salada", "Yuca"]
+         }
+      ]
+    },
+    {
+      "id": "p6",
+      "categoryId": "beverages",
+      "subcategoryId": "juices",
+      "name": "Limonada de Coco",
+      "description": "Refrescante limonada con leche de coco.",
+      "price": 8000,
+      "image": "https://placehold.co/400x300/3b82f6/ffffff?text=Limonada",
+      "rating": 4.6,
+      "time": "5 min",
+      "options": []
+    }
+  ]
+}
