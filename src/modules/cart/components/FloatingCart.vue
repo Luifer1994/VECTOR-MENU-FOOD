@@ -1,5 +1,6 @@
 <script setup>
 import { useCartItems, useCartDrawer, useCartTotals, useOrderNotes } from '@/modules/cart/composables'
+import { useProductById } from '@/modules/products/composables'
 import { formatCurrency } from '@/shared/utils/formatters.js'
 import { ShoppingBag, X, Plus, Minus, Trash2, Edit } from 'lucide-vue-next'
 import { computed, ref } from 'vue'
@@ -62,8 +63,17 @@ const formatSelectedOptions = (item) => {
 // Abrir modal para editar
 const openEditModal = (item) => {
     itemToEdit.value = item
-    productToEdit.value = item.product
-    isEditModalOpen.value = true
+
+    // Buscar el producto original del store para tener las strategies correctas
+    const { getProductById } = useProductById()
+    const originalProduct = getProductById(item.productId)
+
+    if (originalProduct) {
+        productToEdit.value = originalProduct
+        isEditModalOpen.value = true
+    } else {
+        console.error('Product not found in store:', item.productId)
+    }
 }
 
 const closeEditModal = () => {
