@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import { ShoppingCart, Star } from 'lucide-vue-next'
 import { useLazyImage } from '@/shared/composables/useLazyImage'
-import { useScrollAnimation } from '@/shared/composables/useScrollAnimation'
 
 const props = defineProps({
     product: {
@@ -21,16 +20,13 @@ const formattedPrice = computed(() => {
     }).format(props.product.price)
 })
 
-// Lazy loading optimizado para imágenes
+// Lazy loading optimizado - sin animación de scroll
 const { imageSrc, isLoaded, imageRef } = useLazyImage(props.product.image)
-
-// Animación on-scroll
-const { elementRef } = useScrollAnimation({ animationClass: 'animate-fade-in' })
 </script>
 
 <template>
-    <div ref="elementRef" @click="$emit('open-modal', { product: props.product, event: $event })"
-        class="group bg-card text-card-foreground rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-border/40 hover:border-primary/50 cursor-pointer touch-active hover:scale-[1.02] will-animate">
+    <div @click="$emit('open-modal', { product: props.product, event: $event })"
+        class="group bg-card text-card-foreground rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-border/40 hover:border-primary/50 cursor-pointer touch-active hover:scale-[1.02]">
         <div class="relative overflow-hidden aspect-square bg-muted">
             <!-- Lazy loaded image with blur-up effect -->
             <img ref="imageRef" :src="imageSrc" :alt="props.product.name"
