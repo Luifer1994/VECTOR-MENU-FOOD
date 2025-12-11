@@ -23,9 +23,9 @@ onMounted(() => {
 <template>
   <main
     class="min-h-screen bg-background text-foreground relative font-sans antialiased selection:bg-primary selection:text-white">
-    <!-- View transitions for smooth navigation -->
+    <!-- View transitions - fade only to prevent scroll jump -->
     <RouterView v-slot="{ Component, route }">
-      <Transition name="view-slide" mode="out-in">
+      <Transition name="view-fade" mode="out-in">
         <component :is="Component" :key="route.path" />
       </Transition>
     </RouterView>
