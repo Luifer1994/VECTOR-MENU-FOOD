@@ -7,7 +7,7 @@ import { computed, ref } from 'vue'
 import ProductModal from '@/modules/products/components/ProductModal.vue'
 
 // Composables granulares
-const { items, itemCount, isEmpty, removeItem, updateQuantity } = useCartItems()
+const { items, itemCount, isEmpty, removeItem, replaceItem, updateQuantity } = useCartItems()
 const { isOpen, toggleDrawer, closeDrawer } = useCartDrawer()
 const { subtotal } = useCartTotals()
 const { orderNotes } = useOrderNotes()
@@ -82,12 +82,22 @@ const closeEditModal = () => {
     itemToEdit.value = null
 }
 
-// Al guardar edición, eliminar item viejo y cerrar modal
-// (el modal agregará el nuevo item con las opciones actualizadas)
-const handleEditClose = () => {
-    if (itemToEdit.value) {
-        removeItem(itemToEdit.value.id)
+// Usar replaceItem para mantener la posición en el carrito
+const handleEditSave = (data) => {
+    if (itemToEdit.value && data) {
+        replaceItem(
+            itemToEdit.value.id,
+            data.product,
+            data.quantity,
+            data.selectedOptions,
+            data.notes
+        )
     }
+    closeEditModal()
+}
+
+// Si se cierra sin guardar, no eliminar nada
+const handleEditClose = () => {
     closeEditModal()
 }
 </script>
@@ -223,7 +233,9 @@ const handleEditClose = () => {
         </Transition>
 
         <!-- Edit Modal -->
-        <ProductModal :is-open="isEditModalOpen" :product="productToEdit" @close="handleEditClose" />
+        <ProductModal :is-open="isEditModalOpen" :product="productToEdit" :edit-mode="true"
+            :initial-quantity="itemToEdit?.quantity || 1" :initial-options="itemToEdit?.selectedOptions || {}"
+            :initial-notes="itemToEdit?.notes || ''" @close="handleEditClose" @item-updated="handleEditSave" />
     </div>
 </template>
 

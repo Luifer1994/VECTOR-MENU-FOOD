@@ -15,6 +15,10 @@ export function useCartItems() {
     store.removeItem(itemId);
   }
 
+  function replaceItem(oldItemId, product, quantity, selectedOptions, notes) {
+    store.replaceItem(oldItemId, product, quantity, selectedOptions, notes);
+  }
+
   function updateQuantity(itemId, newQuantity) {
     store.updateQuantity(itemId, newQuantity);
   }
@@ -24,6 +28,7 @@ export function useCartItems() {
     itemCount,
     isEmpty,
     removeItem,
+    replaceItem,
     updateQuantity,
   };
 }

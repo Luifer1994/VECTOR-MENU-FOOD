@@ -72,9 +72,58 @@ export const useCartStore = defineStore("cart", () => {
     saveToStorage();
   }
 
+  /**
+   * Eliminar un item del carrito
+   */
   function removeItem(itemId) {
-    items.value = items.value.filter((item) => item.id !== itemId);
+    const index = items.value.findIndex((item) => item.id === itemId);
+    if (index > -1) {
+      items.value.splice(index, 1);
+    }
     saveToStorage();
+  }
+
+  /**
+   * Reemplazar un item manteniendo su posición (para edición)
+   */
+  function replaceItem(oldItemId, product, quantity, selectedOptions, notes) {
+    const index = items.value.findIndex((item) => item.id === oldItemId);
+
+    if (index > -1) {
+      // Calcular precio con opciones
+      let itemPrice = product.price;
+      if (product.optionStrategies) {
+        for (const strategy of product.optionStrategies) {
+          const value = selectedOptions[strategy.name];
+          itemPrice += strategy.calculatePrice(value);
+        }
+      }
+
+      // Crear signature
+      const signature = JSON.stringify({
+        productId: product.id,
+        options: selectedOptions,
+        notes,
+      });
+
+      // Crear el nuevo item
+      const newItem = {
+        id: Date.now().toString(),
+        signature,
+        productId: product.id,
+        productName: product.name,
+        productImage: product.image,
+        price: itemPrice,
+        quantity,
+        selectedOptions,
+        notes,
+        product,
+      };
+
+      // Reemplazar en la misma posición
+      items.value.splice(index, 1, newItem);
+      saveToStorage();
+    }
   }
 
   function updateQuantity(itemId, newQuantity) {
@@ -141,6 +190,7 @@ export const useCartStore = defineStore("cart", () => {
     // Actions
     addItem,
     removeItem,
+    replaceItem,
     updateQuantity,
     clearCart,
     toggleDrawer,

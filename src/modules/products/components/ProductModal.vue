@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, toRef } from 'vue'
+import { ref, computed, toRef, watch, nextTick } from 'vue'
 import { X, Minus, Plus, MessageSquare, Clock } from 'lucide-vue-next'
 import { useAddToCart, useCartAnimation } from '@/modules/cart/composables'
 import { useProductOptions } from '@/modules/products/composables'
@@ -7,10 +7,27 @@ import { formatCurrency } from '@/shared/utils/formatters.js'
 
 const props = defineProps({
     isOpen: Boolean,
-    product: Object
+    product: Object,
+    // Props para edición
+    initialQuantity: {
+        type: Number,
+        default: 1
+    },
+    initialOptions: {
+        type: Object,
+        default: () => ({})
+    },
+    initialNotes: {
+        type: String,
+        default: ''
+    },
+    editMode: {
+        type: Boolean,
+        default: false
+    }
 })
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close', 'item-updated'])
 
 const { addItem } = useAddToCart()
 const { animateAddToCart } = useCartAnimation()
@@ -30,6 +47,27 @@ const formattedPrice = computed(() => {
     return formatCurrency(totalPrice.value * quantity.value)
 })
 
+// Cargar datos iniciales cuando se abre en modo edición
+watch(() => props.isOpen, async (isOpen) => {
+    if (isOpen && props.editMode) {
+        // Esperar al siguiente tick para asegurar que el composable está listo
+        await nextTick()
+        quantity.value = props.initialQuantity
+
+        // Cargar opciones iniciales
+        if (props.initialOptions && Object.keys(props.initialOptions).length > 0) {
+            Object.assign(selectedOptions.value, props.initialOptions)
+        }
+
+        // Cargar notas iniciales
+        notes.value = props.initialNotes
+    } else if (isOpen && !props.editMode) {
+        // Resetear a valores por defecto si no es edición
+        quantity.value = 1
+    }
+})
+
+
 const increaseQuantity = () => quantity.value++
 const decreaseQuantity = () => {
     if (quantity.value > 1) quantity.value--
@@ -42,6 +80,24 @@ const handleAdd = () => {
         return
     }
 
+    // Si estamos en modo edición, emitir datos para que el padre haga replace
+    if (props.editMode) {
+        emit('item-updated', {
+            product: props.product,
+            quantity: quantity.value,
+            selectedOptions: selectedOptions.value,
+            notes: notes.value
+        })
+
+        // Cerrar modal después de un pequeño delay
+        setTimeout(() => {
+            emit('close')
+            quantity.value = 1
+        }, 200)
+        return
+    }
+
+    // Modo normal: agregar al carrito
     addItem(
         props.product,
         quantity.value,
@@ -58,6 +114,7 @@ const handleAdd = () => {
         quantity.value = 1
     }, 200)
 }
+
 
 const close = () => {
     emit('close')
