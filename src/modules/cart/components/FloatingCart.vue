@@ -86,8 +86,8 @@ const handleEditClose = () => {
     <div>
         <!-- Floating Button - Usar colores del tema -->
         <button data-cart-button @click="toggleDrawer"
-            class="fixed bottom-6 right-6 z-50 bg-primary hover:bg-primary/90 text-black p-4 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-105 active:scale-95"
-            :class="{ 'opacity-0 pointer-events-none': isEmpty && !isOpen }">
+            class="fixed bottom-6 right-6 z-50 bg-primary hover:bg-primary/90 text-black p-4 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
+            :class="{ 'opacity-0 pointer-events-none scale-0': isEmpty && !isOpen }">
             <div class="relative">
                 <ShoppingBag class="w-8 h-8" />
                 <span v-if="itemCount > 0"
