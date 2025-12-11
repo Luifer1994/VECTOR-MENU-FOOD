@@ -14,13 +14,22 @@ onMounted(() => {
 
   // Aplicar variables del tema CSS
   applyThemeVariables()
+
+  // Smooth scroll behavior
+  document.documentElement.classList.add('smooth-scroll')
 })
 </script>
 
 <template>
   <main
     class="min-h-screen bg-background text-foreground relative font-sans antialiased selection:bg-primary selection:text-white">
-    <RouterView />
+    <!-- View transitions for smooth navigation -->
+    <RouterView v-slot="{ Component, route }">
+      <Transition name="view-slide" mode="out-in">
+        <component :is="Component" :key="route.path" />
+      </Transition>
+    </RouterView>
+
     <FloatingCart />
   </main>
 </template>
