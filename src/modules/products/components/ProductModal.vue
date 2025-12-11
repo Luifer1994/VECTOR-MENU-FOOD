@@ -257,7 +257,7 @@ const close = () => {
                     </div>
                     <button @click="handleAdd"
                         class="flex-1 bg-primary hover:bg-primary/90 text-black h-11 rounded-lg font-bold flex items-center justify-between px-4 transition-all">
-                        <span>Agregar</span>
+                        <span>{{ editMode ? 'Actualizar' : 'Agregar' }}</span>
                         <span class="bg-black/20 px-2 py-0.5 rounded text-xs">{{ formattedPrice }}</span>
                     </button>
                 </div>
