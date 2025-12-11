@@ -91,7 +91,7 @@ const handleEditClose = () => {
             <div class="relative">
                 <ShoppingBag class="w-8 h-8" />
                 <span v-if="itemCount > 0"
-                    class="absolute -top-2 -right-2 bg-[#00FF00] text-black text-xs font-black w-6 h-6 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(0,255,0,0.6)] border-2 border-black animate-pulse">
+                    class="absolute -top-2 -right-2 bg-[#00FF00] text-black text-xs font-black w-6 h-6 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(0,255,0,0.6)] border-2 border-black cart-badge-wave">
                     {{ itemCount }}
                 </span>
             </div>
@@ -213,3 +213,24 @@ const handleEditClose = () => {
         <ProductModal :is-open="isEditModalOpen" :product="productToEdit" @close="handleEditClose" />
     </div>
 </template>
+
+<style scoped>
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px rgba(0, 255, 0, 0.8), 0 0 40px rgba(0, 255, 0, 0.4);
+    }
+}
+
+.cart-badge-wave {
+    animation: wave 2s ease-in-out infinite;
+}
+</style>
+```
