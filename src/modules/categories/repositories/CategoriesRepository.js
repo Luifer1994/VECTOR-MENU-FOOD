@@ -5,11 +5,16 @@ import categoriesData from "@/data/categories.json";
  */
 export class CategoriesRepository {
   /**
-   * Obtiene todas las categorías
+   * Obtiene todas las categorías ordenadas por nombre
    */
   async getAll() {
     try {
-      return Promise.resolve(categoriesData.categories || {});
+      const categories = Promise.resolve(categoriesData.categories || {});
+      //ordenar
+      const sortedCategories = Object.entries(categories).sort((a, b) =>
+        a[1].name.localeCompare(b[1].name)
+      );
+      return Object.fromEntries(sortedCategories);
     } catch (error) {
       console.error("Error fetching categories:", error);
       throw new Error("Failed to load categories");
